@@ -62,7 +62,7 @@ function App() {
     <div className="App">
       <div>
         <TaskCreate taskCreate={taskCreate}/>
-        <div>0 left to do</div>
+        <div>{tasks.filter(t => t.status != 3).length} left to do</div>
       </div>
       <TaskList
         tasks={tasks}
