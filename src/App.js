@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import TodoList from "./TodoList";
-import TodoManager from "./TodoManager";
+import TaskList from "./TaskList";
+import TaskManager from "./TaskManager";
 
 function App() {
   const [tasks, setTasks] = useState([]);
-  
+
   return (
     <div className="App">
-      <TodoList />
-      <TodoManager />
+      <TaskList tasks={tasks}/>
+      <TaskManager />
     </div>
   );
 }
