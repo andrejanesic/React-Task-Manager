@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import TaskList from "./TaskList";
-import TaskManager from "./TaskManager";
 
 function App() {
   const [tasks, setTasks] = useState([]);
 
   return (
     <div className="App">
-      <TaskList tasks={tasks}/>
-      <TaskManager />
+      <TaskList tasks={tasks} />
+      <div>
+        <input />
+        <button>Add task</button>
+        <button>Clear complete</button>
+        <div>0 left to do</div>
+      </div>
     </div>
   );
 }
