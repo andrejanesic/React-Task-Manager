@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-function Task({ task, taskUpdate }) {
+function Task({ task, taskUpdate, taskRemove }) {
   const nameRef = useRef();
   const descRef = useRef();
   const statusRef = useRef();
@@ -14,6 +14,10 @@ function Task({ task, taskUpdate }) {
     });
   }
 
+  function remove(e) {
+    taskRemove(task.id);
+  }
+
   return (
     <div className="Task">
       <input type="text" ref={nameRef} value={task.name} onChange={update} />
@@ -23,6 +27,7 @@ function Task({ task, taskUpdate }) {
           return <option key={index} value={index}>{val}</option>
         })};
       </select>
+      {taskRemove ? <button onClick={remove}>Delete</button> : null}
     </div>
   );
 }

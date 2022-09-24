@@ -53,6 +53,11 @@ function App() {
     setTasks(newTasks);
   }
 
+  function taskRemove(id) {
+    const newTasks = [...tasks].filter(t => t.id !== id);
+    setTasks(newTasks);
+  }
+
   return (
     <div className="App">
       <div>
@@ -61,7 +66,8 @@ function App() {
       </div>
       <TaskList
         tasks={tasks}
-        taskUpdate={taskUpdate} />
+        taskUpdate={taskUpdate}
+        taskRemove={taskRemove} />
     </div>
   );
 }
