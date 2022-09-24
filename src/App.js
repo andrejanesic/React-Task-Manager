@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import TaskCreate from './TackCreate';
 import TaskList from "./TaskList";
 
 // storage keys
@@ -26,19 +27,16 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks))
   }, [tasks]);
 
-  function taskCreate(e) {
-    const name = taskNameRef.current.value;
-    if (!name) return;
-    console.log(name);
+  function taskCreate(task) {
+    if (!task.name || !task.status) return;
     setTasks(prevTasks => {
       return [...prevTasks, {
         id: uuidv4(),
-        name: name,
-        description: '',
-        status: '',
+        name: task.name,
+        description: task.description,
+        status: task.status,
       }];
     });
-    taskNameRef.current.value = null;
   }
 
   function taskUpdate(id, delta) {
@@ -58,9 +56,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <input ref={taskNameRef} type="text" />
-        <button onClick={taskCreate}>Add task</button>
-        <button>Clear complete</button>
+        <TaskCreate taskCreate={taskCreate}/>
         <div>0 left to do</div>
       </div>
       <TaskList
