@@ -22,13 +22,13 @@ function App() {
 
   return (
     <div className="App">
-      <TaskList tasks={tasks} />
       <div>
         <input ref={taskNameRef} type="text"/>
         <button onClick={createTask}>Add task</button>
         <button>Clear complete</button>
         <div>0 left to do</div>
       </div>
+      <TaskList tasks={tasks} />
     </div>
   );
 }

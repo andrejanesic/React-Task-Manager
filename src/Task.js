@@ -5,7 +5,7 @@ function Task({ task }) {
       <input type="text" value={task.description} />
       <select>
         {['To do', 'In progress', 'Complete'].map((val, index) => {
-          <option value={index} selected={task.status == index}>{val}</option>
+          return <option value={index} selected={task.status == index}>{val}</option>
         })};
       </select>
     </div>
