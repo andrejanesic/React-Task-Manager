@@ -5,7 +5,7 @@ function TaskList({ tasks }) {
     <div className="TaskList">
       <ul>
         {tasks.map(task => {
-          <Task key={task} task={task} />
+          return <Task key={task} task={task} />
         })}
       </ul>
     </div>
