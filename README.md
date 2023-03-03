@@ -1,3 +1,7 @@
+# React Task Manager
+
+Simple task manager application developed to learn more about React. Use `npm start` to start a local server and test the app.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
